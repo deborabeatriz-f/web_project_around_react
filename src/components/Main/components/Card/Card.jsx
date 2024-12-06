@@ -1,8 +1,12 @@
 import heart from "../../../../images/heart_icon.png";
 import heartClicked from "../../../../images/heart-clicked.png";
+import ImagePopup from "../Popup/components/ImagePopup/ImagePopup";
 
 export default function Card(props) {
-  const { name, link, isLiked } = props.card;
+  const { name, link, isLiked, handleOpenPopup } = props.card;
+
+  const imagePopup = { children: <ImagePopup /> };
+  
   return (
     <div className="grid__card">
       <button className="grid__card-delete"></button>

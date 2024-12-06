@@ -3,7 +3,8 @@ export default function Popup(props) {
   return (
     <div className="popup__container container-profile">
       <div className="popup__card">
-        <h3 className="popup__title">{title}</h3>
+        {title && <h3 className="popup__title">{title}</h3>}
+
         {children}
         <button
           className="popup__button-close button-closeProfile"
