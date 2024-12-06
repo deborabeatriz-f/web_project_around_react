@@ -1,5 +1,5 @@
 export default function Popup(props) {
-  const { title, children } = props;
+  const { title, children, onClose } = props;
   return (
     <div className="popup__container container-profile">
       <div className="popup__card">
@@ -8,6 +8,7 @@ export default function Popup(props) {
         <button
           className="popup__button-close button-closeProfile"
           draggable="true"
+          onClick={onClose}
         ></button>
       </div>
     </div>
