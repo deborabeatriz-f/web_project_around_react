@@ -19,7 +19,6 @@
   width: 100%;
   border-radius: 6px;
   border: 1px solid rgba(0, 0, 0, 1);
-  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -148,25 +147,28 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  /* height: 100%; */
+  background-color: transparent;
+  border: none;
+  box-shadow: unset;
 }
 
 .popup__bigImage-cardContainer {
   position: relative;
 }
 
-.popoup__buttonClose-bigImage {
+.popup__buttonClose-bigImage {
   background: transparent url("../images/close-icon.png") center no-repeat;
   border: none;
   cursor: pointer;
   position: absolute;
-  right: -40px;
+  right: -230px;
   top: -40px;
   width: 40px;
   height: 40px;
 }
 
-.popoup__buttonClose-bigImage:hover {
+.popup__buttonClose-bigImage:hover {
   cursor: pointer;
   opacity: 0.6;
 }
@@ -194,9 +196,10 @@
     max-height: 299px;
   }
 
-  .popoup__buttonClose-bigImage {
+  .popup__buttonClose-bigImage {
     width: 35px;
     height: 35px;
+    right: -40px;
   }
 
   .popup__open-bigImage {
@@ -220,9 +223,10 @@
     max-height: 299px;
   }
 
-  .popoup__buttonClose-bigImage {
+  .popup__buttonClose-bigImage {
     width: 30px;
     height: 30px;
+    right: -15px;
   }
 
   .popup__open-bigImage {

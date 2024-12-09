@@ -1,8 +1,9 @@
-.grid__content {
-  display: flex;
-  flex-direction: column;
-  /* display: grid; */
-  /* grid-template-columns: repeat(3, 1fr); */
+.grid {
+  /* display: flex;
+  flex-wrap: wrap; */
+  /* flex-direction: column; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 17px 20px;
   /* position: relative; */
 }
@@ -78,10 +79,10 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .grid__content {
-    display: grid;
+  .grid {
+    /* display: grid; */
     grid-template-columns: repeat(2, 1fr);
-    gap: 17px 20px;
+    /* gap: 17px 20px; */
     max-width: 580px;
     margin: 0 auto;
   }
@@ -95,7 +96,7 @@
 }
 
 @media screen and (max-width: 720px) {
-  .grid__content {
+  .grid {
     grid-template-columns: 1fr;
     gap: 20px;
     max-width: 282px;
