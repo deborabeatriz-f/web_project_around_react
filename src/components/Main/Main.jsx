@@ -23,9 +23,15 @@ const cards = [
     owner: "5d1f0611d321eb4bdcd707dd",
     createdAt: "2019-07-05T08:11:58.324Z",
   },
+  {
+    isLiked: false,
+    _id: "5d1f0611d321eb4bdcd707dd",
+    name: "Yosemite Valley",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg",
+    owner: "5d1f0611d321eb4bdcd707dd",
+    createdAt: "2019-07-05T08:10:57.741Z",
+  },
 ];
-
-console.log(cards);
 
 export default function Main() {
   const [popup, setPopup] = useState(null);
@@ -43,7 +49,7 @@ export default function Main() {
   }
 
   return (
-    <main className="grid__content page__container">
+    <main className="page__container">
       <section className="profile">
         <div className="profile__card-image">
           <img src={avatar} alt="Jacques Cousteau" className="profile__image" />
@@ -67,9 +73,9 @@ export default function Main() {
         ></button>
       </section>
 
-      <section className="cards__list">
+      <section className="grid">
         {cards.map((card) => (
-          <Card key={card._id} card={card} />
+          <Card key={card._id} card={card} handleOpenPopup={handleOpenPopup} />
         ))}
       </section>
 
