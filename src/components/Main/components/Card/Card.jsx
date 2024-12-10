@@ -3,7 +3,7 @@ import heartClicked from "../../../../images/heart-clicked.png";
 import ImagePopup from "../Popup/components/ImagePopup/ImagePopup";
 
 export default function Card(props) {
-  const { name, link, isLiked } = props.card;
+  const { name, link } = props.card;
   const { handleOpenPopup } = props;
 
   const imagePopup = { children: <ImagePopup card={props.card} /> };
