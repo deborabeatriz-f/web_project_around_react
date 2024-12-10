@@ -40,7 +40,6 @@
 
 .profile__card {
   margin-top: 22px;
-  /* margin-left: 30px; */
   display: grid;
   grid-template-areas:
     "title button"
@@ -145,7 +144,6 @@
 
   .profile__card {
     margin-top: 30px;
-    /* margin-left: 0; */
     margin-inline: 19px;
     max-width: 282px;
   }
