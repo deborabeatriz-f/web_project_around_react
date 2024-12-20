@@ -36,7 +36,11 @@
 }
 
 .popup__button-close {
-  background: transparent url("../images/close-icon.png") center no-repeat;
+  background: transparent;
+  background-image: url("../images/close-icon.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   position: absolute;
   right: -34px;
   top: -30px;
@@ -129,7 +133,6 @@
 .formButton_disabled {
   background: rgba(0, 0, 0, 0.8);
 }
-
 
 .popup__bigImage-card {
   display: flex;
