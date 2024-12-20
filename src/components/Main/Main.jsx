@@ -8,65 +8,21 @@ import Card from "./components/Card/Card";
 import api from "../../utils/Api.js";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 
-export default function Main() {
-  const [popup, setPopup] = useState(null);
+export default function Main(props) {
+  const {
+    handleOpenPopup,
+    handleClosePopup,
+    popup,
+    handleCardLike,
+    handleCardDelete,
+    cards,
+  } = props;
 
-  const currentUser = useContext(CurrentUserContext);
+  const { currentUser } = useContext(CurrentUserContext);
 
   const newCardPopup = { title: "New card", children: <NewCard /> };
   const editProfilePopup = { title: "Edit Profile", children: <EditProfile /> };
   const editAvatarPopup = { title: "Edit Avatar", children: <EditAvatar /> };
-
-  const [cards, setCards] = useState([]);
-
-  useEffect(() => {
-    api
-      .getInitialCards()
-      .then((data) => {
-        setCards(data);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }, []);
-
-  function handleOpenPopup(popup) {
-    setPopup(popup);
-  }
-
-  function handleClosePopup() {
-    setPopup(null);
-  }
-
-  async function handleCardLike(card) {
-    const isLiked = card.isLiked;
-    if (isLiked) {
-      await api.unlikedCard(card._id).then((newCard) => {
-        setCards((state) =>
-          state.map((currentCard) =>
-            currentCard._id === card._id ? newCard : currentCard
-          )
-        );
-      });
-    } else {
-      await api.likedCard(card._id).then((newCard) => {
-        setCards((state) =>
-          state.map((currentCard) =>
-            currentCard._id === card._id ? newCard : currentCard
-          )
-        );
-      });
-    }
-  }
-
-  async function handleCardDelete(card) {
-    await api.deleteCard(card._id).then(() => {
-       setCards((state) => 
-        state.filter((currentCard) => 
-          currentCard._id !== card._id
-        ))
-    });
-  }
 
   return (
     <main className="page__container">
