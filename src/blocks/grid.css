@@ -59,9 +59,11 @@
 
 .grid__button-heart {
   border: none;
+  outline: none;
   width: 21px;
   height: 19px;
-  background-size: contain;
+  background-color: transparent;
+  background-image: url("../images/heart_icon.png");
 }
 
 .grid__button-heart:hover {
@@ -70,8 +72,8 @@
   transition: 200ms ease-in-out;
 }
 
-.button-heart-liked {
-  display: none;
+.grid__button-heart-active {
+  background-image: url("../images/heart-clicked.png");
 }
 
 @media screen and (max-width: 1024px) {
