@@ -1,16 +1,21 @@
-import heart from "../../../../images/heart_icon.png";
-import heartClicked from "../../../../images/heart-clicked.png";
 import ImagePopup from "../Popup/components/ImagePopup/ImagePopup";
 
 export default function Card(props) {
-  const { name, link } = props.card;
-  const { handleOpenPopup } = props;
+  const { name, link, isLiked = false } = props.card;
+  const { handleOpenPopup, handleCardLike, handleCardDelete } = props;
+
+  const cardLikeButtonClassName = `grid__button-heart ${
+    isLiked ? "grid__button-heart-active" : ""
+  }`;
 
   const imagePopup = { children: <ImagePopup card={props.card} /> };
 
   return (
     <div className="grid__card">
-      <button className="grid__card-delete"></button>
+      <button
+        className="grid__card-delete"
+        onClick={() => handleCardDelete(props.card)}
+      ></button>
       <img
         src={link}
         alt=""
@@ -19,16 +24,10 @@ export default function Card(props) {
       />
       <div className="grid__card-text">
         <h3 className="grid__card-title">{name}</h3>
-        <img
-          src={heart}
-          alt="Like Button"
-          className="grid__button-heart button-heart-unliked"
-        />
-        <img
-          src={heartClicked}
-          alt="Like Button"
-          className="grid__button-heart button-heart-liked"
-        />
+        <button
+          className={cardLikeButtonClassName}
+          onClick={() => handleCardLike(props.card)}
+        ></button>
       </div>
     </div>
   );
