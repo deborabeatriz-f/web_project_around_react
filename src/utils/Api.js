@@ -28,7 +28,7 @@ class Api {
     });
   }
 
-  setUserInfo(name, about) {
+  setUserInfo({ name, about }) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
@@ -36,18 +36,30 @@ class Api {
         name,
         about,
       }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+
+      return Promise.reject(`Error: ${res.status}`);
     });
   }
 
-  setAvatar(avatar) {
+  setAvatar({ avatar }) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({ avatar }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+
+      return Promise.reject(`Error: ${res.status}`);
     });
   }
 
-  newCard(name, link) {
+  newCard({ name, link }) {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
       headers: this._headers,
@@ -55,6 +67,12 @@ class Api {
         name,
         link,
       }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+
+      return Promise.reject(`Error: ${res.status}`);
     });
   }
 
